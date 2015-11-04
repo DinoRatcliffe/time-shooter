@@ -21,5 +21,9 @@ public class Controls : MonoBehaviour {
 		if (hInput * GetComponent<Rigidbody> ().velocity.x < maxSpeed) {
 			GetComponent<Rigidbody>().AddForce (Vector2.right * hInput * moveForce);
 		}
+
+		if (Mathf.Abs (GetComponent<Rigidbody> ().velocity.x) > maxSpeed) {
+			GetComponent<Rigidbody> ().velocity = new Vector2 (Mathf.Sign (GetComponent<Rigidbody> ().velocity.x) * maxSpeed, GetComponent<Rigidbody>().velocity.y);
+		}
 	}
 }
