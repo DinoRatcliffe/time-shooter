@@ -494,7 +494,7 @@ Transform:
   - {fileID: 311193451}
   - {fileID: 799931705}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!114 &1436046435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,6 +509,8 @@ MonoBehaviour:
   maxSpeed: 5
   moveForce: 365
   jumpForce: 300
+  wallSlideFactor: .0199999996
+  wallJumpAllowed: 1
   airJumpsAllowed: 1
 --- !u!1 &1846004269
 GameObject:
@@ -558,7 +560,7 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1846004269}
-  m_Material: {fileID: 13400000, guid: 417090575d93b43b6905043b297f66fc, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -582,4 +584,4 @@ Transform:
   m_LocalScale: {x: 1, y: 23.5799999, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3

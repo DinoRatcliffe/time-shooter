@@ -5,6 +5,8 @@ public class Controls : MonoBehaviour {
 	public float maxSpeed = 5F;
 	public float moveForce = 365F;
 	public float jumpForce = 300F;
+	public float wallSlideFactor = 0.02F;
+	public bool wallJumpAllowed = true;
 	Transform downAnchor, rightAnchor, leftAnchor;
 	private bool jump;	
 	private int airJumps = 0;
@@ -26,7 +28,13 @@ public class Controls : MonoBehaviour {
 	}
 
 	void addJumpForce() {
-		GetComponent<Rigidbody>().AddForce (new Vector2(0F, jumpForce));
+		if (isAgainstLevel (rightAnchor)) {
+			GetComponent<Rigidbody>().AddForce (new Vector2(-jumpForce, jumpForce));
+		} else if (isAgainstLevel (leftAnchor)) {
+			GetComponent<Rigidbody>().AddForce (new Vector2(jumpForce, jumpForce));
+		} else {
+			GetComponent<Rigidbody>().AddForce (new Vector2(0F, jumpForce));
+		}
 	}
 
 	void FixedUpdate() {
@@ -35,7 +43,7 @@ public class Controls : MonoBehaviour {
 		// prevent wall hang 
 		if (hInput > 0 && isAgainstLevel (rightAnchor) ||
 		    hInput < 0 && isAgainstLevel (leftAnchor)) {
-			hInput *= 0F;
+			hInput *= wallSlideFactor;
 		}
 
 		// left right movement
@@ -50,7 +58,9 @@ public class Controls : MonoBehaviour {
 
 		// limit jumping to number of air jumps 
 		if (jump) { 
-			if (isAgainstLevel(downAnchor)) {
+			bool isAgainstWall = isAgainstLevel(rightAnchor) || isAgainstLevel(leftAnchor);
+
+			if (isAgainstLevel(downAnchor) || (wallJumpAllowed && isAgainstWall)) {
 				addJumpForce();
 				airJumps = 0;
 			} else if(airJumps < airJumpsAllowed) {
