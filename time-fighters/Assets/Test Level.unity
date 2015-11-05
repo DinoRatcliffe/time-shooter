@@ -453,3 +453,4 @@ MonoBehaviour:
   maxSpeed: 5
   moveForce: 365
   jumpForce: 300
+  airJumpsAllowed: 1
