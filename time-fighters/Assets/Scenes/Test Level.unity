@@ -429,7 +429,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1436046429}
   serializedVersion: 2
-  m_Mass: .200000003
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
@@ -509,8 +509,10 @@ MonoBehaviour:
   maxSpeed: 5
   moveForce: 365
   jumpForce: 300
-  wallSlideFactor: .0199999996
+  airMovementFactor: 1
+  wallSlideFactor: 2
   wallJumpAllowed: 1
+  wallResetsJumps: 1
   airJumpsAllowed: 1
 --- !u!1 &1846004269
 GameObject:
