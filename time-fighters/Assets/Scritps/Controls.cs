@@ -7,6 +7,7 @@ public class Controls : MonoBehaviour {
 	public float jumpForce = 300F;
 	public float wallSlideFactor = 0.02F;
 	public bool wallJumpAllowed = true;
+	public bool wallResetsJumps = true;
 	Transform downAnchor, rightAnchor, leftAnchor;
 	private bool jump;	
 	private int airJumps = 0;
@@ -28,12 +29,14 @@ public class Controls : MonoBehaviour {
 	}
 
 	void addJumpForce() {
+		GetComponent<Rigidbody>().AddForce (new Vector2(0F, jumpForce));
+	}
+
+	void wallJump() {
 		if (isAgainstLevel (rightAnchor)) {
 			GetComponent<Rigidbody>().AddForce (new Vector2(-jumpForce, jumpForce));
 		} else if (isAgainstLevel (leftAnchor)) {
 			GetComponent<Rigidbody>().AddForce (new Vector2(jumpForce, jumpForce));
-		} else {
-			GetComponent<Rigidbody>().AddForce (new Vector2(0F, jumpForce));
 		}
 	}
 
@@ -60,10 +63,13 @@ public class Controls : MonoBehaviour {
 		if (jump) { 
 			bool isAgainstWall = isAgainstLevel(rightAnchor) || isAgainstLevel(leftAnchor);
 
-			if (isAgainstLevel(downAnchor) || (wallJumpAllowed && isAgainstWall)) {
+			if (isAgainstLevel(downAnchor)) {
 				addJumpForce();
 				airJumps = 0;
-			} else if(airJumps < airJumpsAllowed) {
+			} else if (wallJumpAllowed && isAgainstWall) {
+				wallJump ();
+				if (wallResetsJumps) airJumps = 0;
+			}else if(airJumps < airJumpsAllowed) {
 				addJumpForce();
 				airJumps++;
 			}
