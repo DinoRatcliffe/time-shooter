@@ -509,8 +509,8 @@ MonoBehaviour:
   maxSpeed: 5
   moveForce: 365
   jumpForce: 300
-  airMovementFactor: 1
-  wallSlideFactor: 2
+  airMovementFactor: .0299999993
+  wallSlideFactor: .0199999996
   wallJumpAllowed: 1
   wallResetsJumps: 1
   airJumpsAllowed: 1

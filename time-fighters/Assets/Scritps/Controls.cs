@@ -10,9 +10,7 @@ public class Controls : MonoBehaviour {
 	public bool wallJumpAllowed = true;
 	public bool wallResetsJumps = true;
 	public int airJumpsAllowed = 1;
-
-	private float _airMovementFactor;
-	private float _wallSlideFactor;
+	
 	private Transform downAnchor, rightAnchor, leftAnchor;
 	private bool jump;	
 	private int airJumps = 0;
@@ -21,9 +19,6 @@ public class Controls : MonoBehaviour {
 		downAnchor = transform.Find ("down");
 		rightAnchor = transform.Find ("right");
 		leftAnchor = transform.Find ("left");
-
-		_airMovementFactor = airMovementFactor / 100;
-		_wallSlideFactor = wallSlideFactor / 100;
 	}
 
 	bool isAgainstLevel(Transform direction) {
@@ -32,7 +27,7 @@ public class Controls : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		jump = Input.GetButtonUp ("Jump");
+		jump = jump || Input.GetButtonDown ("Jump");
 	}
 
 	void addJumpForce() {
@@ -53,12 +48,12 @@ public class Controls : MonoBehaviour {
 		// prevent wall hang 
 		if (hInput > 0 && isAgainstLevel (rightAnchor) ||
 		    hInput < 0 && isAgainstLevel (leftAnchor)) {
-			hInput *= _wallSlideFactor;
+			hInput *= wallSlideFactor;
 		}
 
 		// limit air movement
 		if (!isAgainstLevel (downAnchor)) {
-			hInput *= _airMovementFactor;
+			hInput *= airMovementFactor;
 		}
 
 		// left right movement
