@@ -8,20 +8,19 @@ public class PhisicalObject : MonoBehaviour {
 	public float timeScale = 1F;
 
 	public Vector3 trajectory;
-	// Use this for initialization
+
 	void Start () {
 
 	}
 
 	void FixedUpdate () {
-		//transform.position -= new Vector3 (0,  gravity, 0);
 		AddForce ((trajectory * -1) * drag * timeScale);
 		transform.position += gravity * timeScale;
 		transform.position += trajectory * timeScale;
 	}
 
 	void OnCollisionEnter(Collision collision) {
-		Debug.Log ("enter");
+
 	}
 	
 	public void AddForce(Vector3 force) {

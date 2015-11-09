@@ -45,16 +45,10 @@ public class Controls : MonoBehaviour {
 	void FixedUpdate() {
 		float hInput = Input.GetAxis ("Horizontal");
 
-		// prevent wall hang 
-//		if (hInput > 0 && isAgainstLevel (rightAnchor) ||
-//		    hInput < 0 && isAgainstLevel (leftAnchor)) {
-//			hInput *= wallSlideFactor;
-//		}
-
 		// limit air movement
-//		if (!isAgainstLevel (downAnchor)) {
-//			hInput *= airMovementFactor;
-//		}
+		if (!isAgainstLevel (downAnchor)) {
+			hInput *= airMovementFactor;
+		}
 
 		// left right movement
 		if (Mathf.Abs(GetComponent<PhisicalObject> ().trajectory.x) < maxSpeed) {

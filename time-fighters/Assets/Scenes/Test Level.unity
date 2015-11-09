@@ -506,9 +506,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0f8ea6697c534e468bf29a5f4828a5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: .100000001
+  maxSpeed: .200000003
   moveForce: .0599999987
-  jumpForce: .0900000036
+  jumpForce: .800000012
   airMovementFactor: .0299999993
   wallSlideFactor: .0199999996
   wallJumpAllowed: 1
@@ -525,8 +525,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6caa23d75ef142d485f20110851a6c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: .100000001
-  drag: .00999999978
+  gravity: {x: 0, y: -.100000001, z: 0}
+  drag: .100000001
+  maxVelocity: .300000012
+  timeScale: 1
   trajectory: {x: 0, y: 0, z: 0}
 --- !u!1 &1846004269
 GameObject:
