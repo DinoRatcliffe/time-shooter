@@ -17,8 +17,8 @@ public class Controls : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		downAnchor = transform.Find ("down");
-		rightAnchor = transform.Find ("right");
 		leftAnchor = transform.Find ("left");
+		rightAnchor = transform.Find ("right");
 	}
 
 	bool isAgainstLevel(Transform direction) {
@@ -31,14 +31,14 @@ public class Controls : MonoBehaviour {
 	}
 
 	void addJumpForce() {
-		GetComponent<Rigidbody>().AddForce (new Vector2(0F, jumpForce));
+		GetComponent<PhisicalObject>().AddForce (new Vector2(0F, jumpForce));
 	}
 
 	void wallJump() {
 		if (isAgainstLevel (rightAnchor)) {
-			GetComponent<Rigidbody>().AddForce (new Vector2(-jumpForce, jumpForce));
+			GetComponent<PhisicalObject>().AddForce (new Vector2(-jumpForce, jumpForce));
 		} else if (isAgainstLevel (leftAnchor)) {
-			GetComponent<Rigidbody>().AddForce (new Vector2(jumpForce, jumpForce));
+			GetComponent<PhisicalObject>().AddForce (new Vector2(jumpForce, jumpForce));
 		}
 	}
 
@@ -57,13 +57,8 @@ public class Controls : MonoBehaviour {
 		}
 
 		// left right movement
-		if (hInput * GetComponent<Rigidbody> ().velocity.x < maxSpeed) {
-			GetComponent<Rigidbody>().AddForce (Vector2.right * hInput * moveForce);
-		}
-
-		// clamp to max speed
-		if (Mathf.Abs (GetComponent<Rigidbody> ().velocity.x) > maxSpeed) {
-			GetComponent<Rigidbody> ().velocity = new Vector2 (Mathf.Sign (GetComponent<Rigidbody> ().velocity.x) * maxSpeed, GetComponent<Rigidbody>().velocity.y);
+		if (hInput * GetComponent<PhisicalObject> ().trajectory.x < maxSpeed) {
+			GetComponent<PhisicalObject>().AddForce (Vector2.right * hInput * moveForce);
 		}
 
 		// limit jumping to number of air jumps 
