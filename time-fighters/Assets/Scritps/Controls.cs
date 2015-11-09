@@ -46,18 +46,18 @@ public class Controls : MonoBehaviour {
 		float hInput = Input.GetAxis ("Horizontal");
 
 		// prevent wall hang 
-		if (hInput > 0 && isAgainstLevel (rightAnchor) ||
-		    hInput < 0 && isAgainstLevel (leftAnchor)) {
-			hInput *= wallSlideFactor;
-		}
+//		if (hInput > 0 && isAgainstLevel (rightAnchor) ||
+//		    hInput < 0 && isAgainstLevel (leftAnchor)) {
+//			hInput *= wallSlideFactor;
+//		}
 
 		// limit air movement
-		if (!isAgainstLevel (downAnchor)) {
-			hInput *= airMovementFactor;
-		}
+//		if (!isAgainstLevel (downAnchor)) {
+//			hInput *= airMovementFactor;
+//		}
 
 		// left right movement
-		if (hInput * GetComponent<PhisicalObject> ().trajectory.x < maxSpeed) {
+		if (Mathf.Abs(GetComponent<PhisicalObject> ().trajectory.x) < maxSpeed) {
 			GetComponent<PhisicalObject>().AddForce (Vector2.right * hInput * moveForce);
 		}
 
