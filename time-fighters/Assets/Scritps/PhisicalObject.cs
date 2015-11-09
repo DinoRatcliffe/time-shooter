@@ -19,10 +19,6 @@ public class PhisicalObject : MonoBehaviour {
 		transform.position += trajectory * timeScale;
 	}
 
-	void OnCollisionEnter(Collision collision) {
-
-	}
-	
 	public void AddForce(Vector3 force) {
 		trajectory += force;
 	}
