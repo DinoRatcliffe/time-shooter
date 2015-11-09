@@ -2,9 +2,10 @@
 using System.Collections;
 
 public class PhisicalObject : MonoBehaviour {
-	public float gravity = 0.1F;
+	public Vector3 gravity;
 	public float drag = 0.1F;
 	public float maxVelocity = 0.5F;
+	public float timeScale = 1F;
 
 	public Vector3 trajectory;
 	// Use this for initialization
@@ -14,9 +15,9 @@ public class PhisicalObject : MonoBehaviour {
 
 	void FixedUpdate () {
 		//transform.position -= new Vector3 (0,  gravity, 0);
-		AddForce ((trajectory * -1) * drag);
-		transform.position += new Vector3 (0, gravity * -1, 0);
-		transform.position += trajectory;
+		AddForce ((trajectory * -1) * drag * timeScale);
+		transform.position += gravity * timeScale;
+		transform.position += trajectory * timeScale;
 	}
 
 	void OnCollisionEnter(Collision collision) {
