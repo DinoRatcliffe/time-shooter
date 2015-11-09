@@ -43,7 +43,7 @@ public class Controls : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		float hInput = Input.GetAxis ("Horizontal");
+		float hInput = Input.GetAxis ("MoveHorizontal");
 
 		// limit air movement
 		if (!isAgainstLevel (downAnchor)) {

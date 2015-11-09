@@ -6,8 +6,8 @@ public class Bullet : MonoBehaviour {
 	public float cleanUpAfter = 2f; //destroy object after n seconds
 	// Use this for initialization
 	void Start () {
-		Rigidbody rb = GetComponent<Rigidbody> ();
-		rb.AddForce (transform.right*bulletForce);
+		PhisicalObject po = GetComponent<PhisicalObject> ();
+		po.AddForce (transform.right*bulletForce);
 		StartCoroutine ("CleanUp");
 	}
 	
