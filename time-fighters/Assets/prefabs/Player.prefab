@@ -330,6 +330,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cdf4759e7ad74824b4903cfe94c8c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectile: {fileID: 144138, guid: 17d6c6b81a95b44daa6a230768c912f8, type: 2}
+  altProjectile: {fileID: 0}
+  aimingLocation: {x: 0, y: 0}
 --- !u!114 &11487092
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -385,6 +388,10 @@ Prefab:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 144138, guid: 17d6c6b81a95b44daa6a230768c912f8, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 134672}

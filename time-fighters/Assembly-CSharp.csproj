@@ -45,27 +45,20 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scritps\Aim.cs" />
-     <Compile Include="Assets\Scritps\Bullet.cs" />
+     <Compile Include="Assets\Projectile.cs" />
      <Compile Include="Assets\Scritps\Controls.cs" />
+     <Compile Include="Assets\Scritps\Crosshair.cs" />
      <Compile Include="Assets\Scritps\LevelInit.cs" />
      <Compile Include="Assets\Scritps\LevelPreview.cs" />
      <Compile Include="Assets\Scritps\MainMenu.cs" />
      <Compile Include="Assets\Scritps\PhisicalObject.cs" />
      <Compile Include="Assets\Scritps\PlayerCreation.cs" />
-     <Compile Include="Assets\Scritps\StateCapture.cs" />
      <Compile Include="Assets\Scritps\TimeManipulationZone.cs" />
- <Reference Include="UnityEngine.Analytics">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Advertisements">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

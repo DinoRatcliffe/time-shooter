@@ -30,7 +30,7 @@ public class Controls : MonoBehaviour {
 	void Update () {
 		jump = jump || Input.GetButtonDown ("JUMP_P" + playerNum);
 		if (Input.GetButtonDown ("FIRE_P" + playerNum)) {
-			gameObject.GetComponent<Aim>().Fire();
+			gameObject.GetComponent<Crosshair>().Fire();
 		}
 	}
 
@@ -54,7 +54,7 @@ public class Controls : MonoBehaviour {
 		float hInput = Input.GetAxis ("MoveHorizontal_P" + playerNum);
 
 		// update croshair
-		gameObject.GetComponent<Aim> ().updateAimLocation (
+		gameObject.GetComponent<Crosshair> ().updateAimLocation (
 			new Vector2(
 			Input.GetAxis ("AimHorizontal_P" + playerNum), 
 			Input.GetAxis ("AimVertical_P" + playerNum)));

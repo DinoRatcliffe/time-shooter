@@ -96,7 +96,7 @@ GameObject:
   - 222: {fileID: 110729344}
   - 114: {fileID: 110729343}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,12 +128,12 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 1
+    m_Alignment: 4
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Unititled
+  m_Text: Untitled Game
 --- !u!222 &110729344
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -154,8 +154,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: 160.399994}
-  m_SizeDelta: {x: 184.399994, y: 38.5}
+  m_AnchoredPosition: {x: 0, y: 153.690002}
+  m_SizeDelta: {x: 223.699997, y: 36}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &336604385
 GameObject:
