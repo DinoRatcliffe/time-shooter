@@ -4,11 +4,12 @@ using System.Collections;
 public class Crosshair : MonoBehaviour {
 	
 	public GameObject projectile;
-	public GameObject altProjectile;
+	public GameObject altProjectilePrefab;
 	public GameObject crosshairPrefab;
 	Vector2 aimingLocation;
 
 	private GameObject crosshair;
+	private GameObject currentAltProjectile;
 
 	// Use this for initialization
 	void Start () {
@@ -26,12 +27,25 @@ public class Crosshair : MonoBehaviour {
 	}
 
 	public void AltFire() {
+		if (aimingLocation.magnitude > 0) {
+			if (currentAltProjectile) AltFireClear();
+			currentAltProjectile = (GameObject)Instantiate (altProjectilePrefab, gameObject.transform.position, gameObject.transform.rotation);
+			Projectile p = currentAltProjectile.GetComponent<Projectile> ();
+			p.shoot (aimingLocation.normalized);
+		}
 	}
 
 	public void AltFireDeploy() {
+		if (currentAltProjectile) {
+			currentAltProjectile.GetComponent<AltEffect>().activate();
+		}
 	}
 
 	public void AltFireClear() {
+		if (currentAltProjectile) {
+			currentAltProjectile.GetComponent<Projectile>().destroy(0);
+			currentAltProjectile = null;
+		}
 	}
 
 	public void updateAimLocation(Vector2 aim) {

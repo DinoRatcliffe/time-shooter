@@ -15,6 +15,7 @@ public class Controls : MonoBehaviour {
 	private bool jump;	
 	private int airJumps = 0;
 	private int playerNum = 1;
+	private bool altDown;
 	// Use this for initialization
 	void Start () {
 		downAnchor = transform.Find ("down");
@@ -31,6 +32,16 @@ public class Controls : MonoBehaviour {
 		jump = jump || Input.GetButtonDown ("JUMP_P" + playerNum);
 		if (Input.GetButtonDown ("FIRE_P" + playerNum)) {
 			gameObject.GetComponent<Crosshair>().Fire();
+		}
+
+		if (Input.GetButtonDown ("FIRE_ALT_P" + playerNum) && !altDown) {
+			gameObject.GetComponent<Crosshair> ().AltFire ();
+			altDown = true;
+			Debug.Log ("fire alt");
+		} else if (Input.GetButtonUp ("FIRE_ALT_P" + playerNum) && altDown) {
+			gameObject.GetComponent<Crosshair> ().AltFireDeploy();
+			altDown = false;
+			Debug.Log ("activate alt");
 		}
 	}
 
