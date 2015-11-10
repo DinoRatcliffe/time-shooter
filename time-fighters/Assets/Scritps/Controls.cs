@@ -14,7 +14,7 @@ public class Controls : MonoBehaviour {
 	private Transform downAnchor, rightAnchor, leftAnchor;
 	private bool jump;	
 	private int airJumps = 0;
-	private int playerNum = 1;
+	public int playerNum = 1;
 	private bool altDown;
 	// Use this for initialization
 	void Start () {
