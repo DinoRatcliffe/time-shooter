@@ -22,6 +22,7 @@ public class PlayerCreation : MonoBehaviour {
 		if (Input.GetButtonDown ("START_P1") && !p1Spawned) {
 			spawnPlayer(p1_spawn, 1, p1_color);
 			p1Spawned = true;
+			Application.LoadLevel("Level 1");
 		} else if (Input.GetButtonDown ("START_P2") && !p2Spawned) {
 			spawnPlayer(p2_spawn, 2, p2_color);
 			p2Spawned = true;
@@ -41,6 +42,8 @@ public class PlayerCreation : MonoBehaviour {
 		player.GetComponent<Controls>().setPlayerNum(controllerNumber);
 		player.GetComponent<Renderer> ().material.color = color;
 		players.Add(player);
+
+		DontDestroyOnLoad (player.gameObject);
 
 		foreach (Text t in textualComponents) {
 			if (t.name == "P"+controllerNumber) {
