@@ -32,7 +32,9 @@ public class PlayerCreation : MonoBehaviour {
 		} else if (Input.GetButtonDown ("START_P4") && !p4Spawned) {
 			spawnPlayer (p4_spawn, 4, p4_color);
 			p4Spawned = true;
-		} else if (Input.GetButtonDown ("READY_P1") && p1Spawned) {
+		}
+
+		if (Input.GetButtonDown ("READY_P1") && p1Spawned) {
 			p1Ready = true;
 			readyUp(1);
 		} else if (Input.GetButtonDown ("READY_P2") && p2Spawned) {
