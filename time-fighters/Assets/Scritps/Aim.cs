@@ -8,16 +8,22 @@ public class Aim : MonoBehaviour {
 	GameObject projectile;
 	Transform targetting;
 
+	Vector2 aimingLocation;
+
 	// Use this for initialization
 	void Start () {
 		targetting = transform.FindChild ("targetting");
 		projectile = Resources.Load ("aimtest/Projectile") as GameObject;
 	}
 
-	void Fire() {
+	public void Fire() {
 		Instantiate (projectile, targetting.position, targetting.rotation);
 	}
-	
+
+
+	public void updateAimLocation(Vector2 aim) {
+		aimingLocation = aim;
+	}
 	// Update is called once per frame
 	void Update () {/*
 		//for Mouse
@@ -26,14 +32,8 @@ public class Aim : MonoBehaviour {
 		Vector3 result;
 		result = mousePosition - objectPosition;
 		*/
-
-		float x = Input.GetAxis ("AimHorizontal");
-		float y = Input.GetAxis ("AimVertical");
-		float angle = Mathf.Atan2 (y, x) * Mathf.Rad2Deg;
+	
+		float angle = Mathf.Atan2 (aimingLocation.y, aimingLocation.x) * Mathf.Rad2Deg;
 		targetting.rotation = Quaternion.Euler (0, 0, angle);
-
-		if (Input.GetMouseButtonDown (0) || Input.GetButtonDown ("Fire1")) {
-			Fire ();
-		}
 	}
 }

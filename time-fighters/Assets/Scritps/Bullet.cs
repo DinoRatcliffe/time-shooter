@@ -8,16 +8,11 @@ public class Bullet : MonoBehaviour {
 	void Start () {
 		PhisicalObject po = GetComponent<PhisicalObject> ();
 		po.AddForce (transform.right*bulletForce);
-		StartCoroutine ("CleanUp");
+		Destroy (gameObject, 5F);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-	}
-
-	IEnumerator CleanUp() {
-		yield return new WaitForSeconds(cleanUpAfter);
-		Destroy (this);
 	}
 }

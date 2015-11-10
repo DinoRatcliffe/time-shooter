@@ -14,6 +14,7 @@ public class Controls : MonoBehaviour {
 	private Transform downAnchor, rightAnchor, leftAnchor;
 	private bool jump;	
 	private int airJumps = 0;
+	private int playerNum = 1;
 	// Use this for initialization
 	void Start () {
 		downAnchor = transform.Find ("down");
@@ -27,7 +28,10 @@ public class Controls : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		jump = jump || Input.GetButtonDown ("Jump");
+		jump = jump || Input.GetButtonDown ("JUMP_P" + playerNum);
+		if (Input.GetButtonDown ("FIRE_P" + playerNum)) {
+			gameObject.GetComponent<Aim>().Fire();
+		}
 	}
 
 	void addJumpForce() {
@@ -42,8 +46,18 @@ public class Controls : MonoBehaviour {
 		}
 	}
 
+	public void setPlayerNum(int i) {
+		playerNum = i;
+	}
+
 	void FixedUpdate() {
-		float hInput = Input.GetAxis ("MoveHorizontal");
+		float hInput = Input.GetAxis ("MoveHorizontal_P" + playerNum);
+
+		// update croshair
+		gameObject.GetComponent<Aim> ().updateAimLocation (
+			new Vector2(
+			Input.GetAxis ("AimHorizontal_P" + playerNum), 
+			Input.GetAxis ("AimVertical_P" + playerNum)));
 
 		// limit air movement
 		if (!isAgainstLevel (downAnchor)) {
