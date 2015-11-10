@@ -37,11 +37,14 @@ public class Controls : MonoBehaviour {
 		if (Input.GetButtonDown ("FIRE_ALT_P" + playerNum) && !altDown) {
 			gameObject.GetComponent<Crosshair> ().AltFire ();
 			altDown = true;
-			Debug.Log ("fire alt");
 		} else if (Input.GetButtonUp ("FIRE_ALT_P" + playerNum) && altDown) {
 			gameObject.GetComponent<Crosshair> ().AltFireDeploy();
 			altDown = false;
-			Debug.Log ("activate alt");
+		}
+
+		if (Input.GetButtonDown ("CLEAR_ALT_P" + playerNum)) {
+			gameObject.GetComponent<Crosshair> ().AltFireClear();
+			altDown = false;
 		}
 	}
 
