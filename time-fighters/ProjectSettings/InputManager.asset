@@ -107,15 +107,15 @@ InputManager:
     descriptiveNegativeName: 
     negativeButton: left
     positiveButton: right
-    altNegativeButton: 
-    altPositiveButton: 
+    altNegativeButton: joystick button 0
+    altPositiveButton: joystick button 3
     gravity: 0
     dead: 0
     sensitivity: .100000001
     snap: 0
     invert: 0
-    type: 1
-    axis: 0
+    type: 0
+    axis: 6
     joyNum: 0
   - serializedVersion: 3
     m_Name: Vertical
@@ -123,14 +123,14 @@ InputManager:
     descriptiveNegativeName: 
     negativeButton: down
     positiveButton: up
-    altNegativeButton: 
-    altPositiveButton: 
+    altNegativeButton: joystick button 3
+    altPositiveButton: joystick button 1
     gravity: 0
     dead: 0
     sensitivity: .100000001
     snap: 0
     invert: 0
-    type: 1
+    type: 0
     axis: 0
     joyNum: 0
   - serializedVersion: 3
