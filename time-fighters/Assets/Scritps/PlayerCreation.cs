@@ -67,7 +67,7 @@ public class PlayerCreation : MonoBehaviour {
 	}
 
 	void startLevel() {
-		Application.LoadLevel ("Level 1");
+		Application.LoadLevel ("Level Select");
 	}
 
 	void spawnPlayer(Vector3 location, int controllerNumber, Color color) {
