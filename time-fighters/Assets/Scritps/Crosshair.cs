@@ -48,7 +48,7 @@ public class Crosshair : MonoBehaviour {
 
 	public void AltFireClear() {
 		if (currentAltProjectile) {
-			currentAltProjectile.GetComponent<Projectile>().destroy(0);
+			currentAltProjectile.GetComponent<AltEffect>().destroy();
 			currentAltProjectile = null;
 		}
 	}

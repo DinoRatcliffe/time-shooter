@@ -9,7 +9,6 @@ public class AltEffect : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		gameObject.transform.localScale = new Vector3 (0.3F, 0.3F, 0.3F);
 	}
 	
 	// Update is called once per frame
@@ -21,5 +20,19 @@ public class AltEffect : MonoBehaviour {
 	public void activate() {
 		gameObject.GetComponent<PhisicalObject> ().drag = 1;
 		expand = true;
+	}
+
+	public void destroy() {
+		StartCoroutine ("Shrink");
+	}
+
+	IEnumerator Shrink() {
+		Vector3 scale = gameObject.transform.localScale;
+		for (float f = 0f; f <= 1; f += 0.1f) {
+			gameObject.transform.localScale = Vector3.Lerp (scale, new Vector3 (0F, 0F, 0F), f);
+			yield return null;
+		}
+
+		Destroy (gameObject);
 	}
 }
