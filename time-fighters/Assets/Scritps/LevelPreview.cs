@@ -19,6 +19,7 @@ public class LevelPreview : MonoBehaviour {
 		gameObject.transform.Rotate (new Vector3 (0, 0.5F, 0));
 
 		float value = Input.GetAxis ("DPAD_HORIZONTAL_ALL");
+		Debug.Log (value);
 		if (value > 0 && !rightDown) {
 			selected = selected + 1 > levels.Count - 1 ? 0 : selected + 1;
 			refreshLevel ();
