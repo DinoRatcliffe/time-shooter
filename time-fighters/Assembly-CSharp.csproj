@@ -45,6 +45,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Background.cs" />
      <Compile Include="Assets\Scritps\AltEffect.cs" />
      <Compile Include="Assets\Scritps\Controls.cs" />
      <Compile Include="Assets\Scritps\Crosshair.cs" />
