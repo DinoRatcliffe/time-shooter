@@ -569,6 +569,7 @@ MonoBehaviour:
   levels:
   - {fileID: 189934, guid: 47a9563f360e64451b10e0aed24c48e4, type: 2}
   - {fileID: 161716, guid: 7c6fe07bd175244d3ad84decc31f4026, type: 2}
+  - {fileID: 132686, guid: bae83b13d1832458091b4f3e8d7f44c5, type: 2}
 --- !u!1 &1434439760
 GameObject:
   m_ObjectHideFlags: 0
