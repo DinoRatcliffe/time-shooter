@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: .0469999984, g: .0430000015, b: .0350000001, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 14d70f6f172d44dc29944e1c475ac57b, type: 2}
   m_HaloStrength: .5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -66,7 +66,7 @@ LightmapSettings:
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
     m_ReflectionCompression: 2
-  m_LightmapSnapshot: {fileID: 112000001, guid: 2878eae2a23e6481d928b881d8da6c2e,
+  m_LightmapSnapshot: {fileID: 112000001, guid: 82727217e276f48bda196602f7e145cd,
     type: 2}
   m_RuntimeCPUUsage: 25
 --- !u!196 &4
@@ -273,8 +273,24 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 455094, guid: 7c6fe07bd175244d3ad84decc31f4026, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2386994, guid: 7c6fe07bd175244d3ad84decc31f4026, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6d54e26f4c9aa40b19eaa71afa9a06b5, type: 2}
+    - target: {fileID: 2335494, guid: 7c6fe07bd175244d3ad84decc31f4026, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6d54e26f4c9aa40b19eaa71afa9a06b5, type: 2}
+    - target: {fileID: 2397140, guid: 7c6fe07bd175244d3ad84decc31f4026, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6d54e26f4c9aa40b19eaa71afa9a06b5, type: 2}
+    - target: {fileID: 2332764, guid: 7c6fe07bd175244d3ad84decc31f4026, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6d54e26f4c9aa40b19eaa71afa9a06b5, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7c6fe07bd175244d3ad84decc31f4026, type: 2}
   m_IsPrefabParent: 0

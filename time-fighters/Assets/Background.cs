@@ -8,6 +8,7 @@ public class Background : MonoBehaviour {
 	public GameObject item;
 	public float speed;
 	public float speedRange;
+	public float moveRange;
 
 	private Dictionary<GameObject, float> items;
 
@@ -21,11 +22,16 @@ public class Background : MonoBehaviour {
 				g.transform.localScale = new Vector3(1F, 1F, 1F);
 
 				float initialSpeed = Random.Range (speed, speed+speedRange);
-				float initialValue = Random.Range(0F, 1F);
+				float initialValue = Random.Range(0F, moveRange);
 				g.transform.localPosition = new Vector3(i-height/2, j-width/2, initialValue);
 
 				if (Random.Range(0, 1) == 1) {
 					initialSpeed *= -1;
+				}
+
+				if (Random.Range (0F, 1F) > 0.9) {
+					g.GetComponentInChildren<Light>().enabled = true;
+
 				}
 
 				items.Add (g, initialSpeed);
@@ -43,8 +49,8 @@ public class Background : MonoBehaviour {
 			newZ += items[item];
 
 			if (Mathf.Sign(items[item]) > 0) {
-				if (newZ > 1) {
-					newZ = 1;
+				if (newZ > moveRange) {
+					newZ = moveRange;
 					newSpeed *= -1;
 				}
 			} else {
