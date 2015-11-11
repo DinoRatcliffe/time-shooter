@@ -21,7 +21,7 @@ public class Crosshair : MonoBehaviour {
 		if (aimingLocation.magnitude > 0) {
 			GameObject g = (GameObject)Instantiate (projectile, gameObject.transform.position, gameObject.transform.rotation);
 			Projectile p = g.GetComponent<Projectile> ();
-			p.shoot (aimingLocation.normalized);
+			p.shoot (aimingLocation.normalized, gameObject);
 			p.destroy (5F);
 		}
 	}
@@ -31,7 +31,7 @@ public class Crosshair : MonoBehaviour {
 			if (currentAltProjectile) AltFireClear();
 			currentAltProjectile = (GameObject)Instantiate (altProjectilePrefab, gameObject.transform.position, gameObject.transform.rotation);
 			Projectile p = currentAltProjectile.GetComponent<Projectile> ();
-			p.shoot (aimingLocation.normalized);
+			p.shoot (aimingLocation.normalized, gameObject);
 		}
 	}
 

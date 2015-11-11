@@ -20,7 +20,7 @@ public class PlayerHealth: MonoBehaviour {
 
 	void OnTriggerEnter(Collider collider) {
 		Projectile p = collider.gameObject.GetComponent<Projectile> ();
-		if (p) {
+		if (p && p.shooter != gameObject) {
 			currentHealth -= p.damage;
 			p.damagedPlayer();
 		}
