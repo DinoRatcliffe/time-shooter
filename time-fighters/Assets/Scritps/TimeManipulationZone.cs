@@ -37,7 +37,10 @@ public class TimeManipulationZone : MonoBehaviour {
 		foreach (GameObject g in objects.Keys) {
 			float timeDiff;
 			objects.TryGetValue(g, out timeDiff);
-			g.GetComponent<PhisicalObject>().timeScale += timeDiff; 
+
+			if (g) {
+				g.GetComponent<PhisicalObject>().timeScale += timeDiff;
+			}
 		}
 	}
 }
