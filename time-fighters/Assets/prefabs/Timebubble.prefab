@@ -12,6 +12,7 @@ GameObject:
   - 135: {fileID: 13584222}
   - 23: {fileID: 2361682}
   - 114: {fileID: 11469450}
+  - 114: {fileID: 11445488}
   m_Layer: 0
   m_Name: Timebubble
   m_TagString: Untagged
@@ -62,6 +63,24 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 167854}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &11445488
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 167854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6caa23d75ef142d485f20110851a6c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: {x: 0, y: 0, z: 0}
+  drag: 0
+  maxVelocity: .5
+  timeScale: 1
+  collision: 0
+  noClip: 1
+  trajectory: {x: 0, y: 0, z: 0}
 --- !u!114 &11469450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -92,7 +111,19 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: drag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: collision
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: noClip
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 167854}
