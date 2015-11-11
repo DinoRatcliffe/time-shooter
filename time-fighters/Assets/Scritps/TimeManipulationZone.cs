@@ -4,13 +4,13 @@ using System.Collections.Generic;
 
 public class TimeManipulationZone : MonoBehaviour {
 
-	public float timeScale = 0.05F;
-	private List<PhisicalObject> objects;
+	public float timeScaleFactor = 0.5F;
+	private Dictionary<GameObject, float> objects;
 
 
 	// Use this for initialization
 	void Start () {
-		objects = new List<PhisicalObject> ();
+		objects = new Dictionary<GameObject, float> ();
 	}
 	
 	// Update is called once per frame
@@ -19,18 +19,25 @@ public class TimeManipulationZone : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider collider) {
-		collider.gameObject.GetComponent<PhisicalObject> ().timeScale = timeScale;
-		objects.Add (collider.gameObject.GetComponent<PhisicalObject> ());
+		float oldTime = collider.gameObject.GetComponent<PhisicalObject> ().timeScale;
+		float timeDiff = oldTime * timeScaleFactor;
+		collider.gameObject.GetComponent<PhisicalObject> ().timeScale = oldTime - timeDiff;
+		objects.Add (collider.gameObject, timeDiff);
 	}
 
 	void OnTriggerExit(Collider collider) {
-		collider.gameObject.GetComponent<PhisicalObject> ().timeScale = 1F;
-		objects.Remove (collider.gameObject.GetComponent<PhisicalObject> ());
+		float oldTime = collider.gameObject.GetComponent<PhisicalObject> ().timeScale;
+		float timeDiff;
+		objects.TryGetValue (collider.gameObject, out timeDiff);
+		collider.gameObject.GetComponent<PhisicalObject> ().timeScale = oldTime + timeDiff;
+		objects.Remove (collider.gameObject);
 	}
 
 	void OnDestroy() {
-		foreach (PhisicalObject p in objects) {
-			p.timeScale = 1F;
+		foreach (GameObject g in objects.Keys) {
+			float timeDiff;
+			objects.TryGetValue(g, out timeDiff);
+			g.GetComponent<PhisicalObject>().timeScale += timeDiff; 
 		}
 	}
 }
