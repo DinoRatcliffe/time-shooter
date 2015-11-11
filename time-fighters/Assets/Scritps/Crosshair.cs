@@ -24,6 +24,7 @@ public class Crosshair : MonoBehaviour {
 			Projectile p = g.GetComponent<Projectile> ();
 			p.GetComponentInChildren<Light>().color = color;
 			p.GetComponent<Renderer>().material.color = color;
+			p.GetComponent<Renderer>().material.SetColor ("_EmissionColor", color);
 			p.shoot (aimingLocation.normalized, gameObject);
 			p.destroy (5F);
 		}

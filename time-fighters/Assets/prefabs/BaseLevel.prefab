@@ -596,8 +596,8 @@ MonoBehaviour:
   width: 9
   height: 15
   item: {fileID: 108016, guid: 84826399814da4b9eb469c3d6f3bea07, type: 2}
-  speed: .000199999995
-  speedRange: .000500000024
+  speed: .000699999975
+  speedRange: .00100000005
   moveRange: .300000012
 --- !u!124 &12498718
 Behaviour:
