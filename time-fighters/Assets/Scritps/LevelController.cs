@@ -18,7 +18,7 @@ public class LevelController : MonoBehaviour {
 		foreach (GameObject player in GameObject.FindGameObjectsWithTag ("Player")) {
 			players.Add (player);
 			player.GetComponent<PlayerHealth>().reset();
-			player.transform.localPosition = spawns[i].transform.position;
+			StartCoroutine (Respwan (player, spawns [i]));
 			i++;
 		}
 	}
@@ -44,7 +44,7 @@ public class LevelController : MonoBehaviour {
 		}
 	}
 
-	
+
 	IEnumerator Respwan(GameObject player, GameObject spawn) {
 		player.GetComponent<BoxCollider> ().enabled = false;
 		player.GetComponent<Controls> ().enabled = false;
