@@ -16,7 +16,7 @@ public class PlayerStatistics : MonoBehaviour {
 
 	public void setPlayerNumber(int playerNumber) {
 		this.playerNumber = playerNumber;
-		string statsField = "/PlayerStatsCanvas/P" + playerNumber + "/StatsText";
+		string statsField = "/PlayerStats/P" + playerNumber + "/StatsText";
 
 		GameObject obj = GameObject.Find (statsField);
 		if (obj) {
@@ -39,7 +39,7 @@ public class PlayerStatistics : MonoBehaviour {
 		UpdateStats ();
 	}
 
-	void UpdateStats() {
+	public void UpdateStats() {
 		if (statsText) {
 			statsText.text = 
 				"Player " + playerNumber + "\n" + 
