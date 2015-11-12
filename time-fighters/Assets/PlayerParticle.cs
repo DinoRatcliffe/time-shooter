@@ -5,8 +5,8 @@ public class PlayerParticle : MonoBehaviour {
 
 	private Vector3 originPosition;
 	private Quaternion originRotation;
-	private Vector3 finalPosition;
-	private Quaternion finalRotation;
+	public Vector3 finalPosition;
+	public Quaternion finalRotation;
 
 	// Use this for initialization
 	void Start () {

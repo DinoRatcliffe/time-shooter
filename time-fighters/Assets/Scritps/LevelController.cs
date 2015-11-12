@@ -46,7 +46,16 @@ public class LevelController : MonoBehaviour {
 
 	
 	IEnumerator Respwan(GameObject player, GameObject spawn) {
+		player.GetComponent<BoxCollider> ().enabled = false;
+		player.GetComponent<Controls> ().enabled = false;
+		player.GetComponent<PhisicalObject> ().enabled = false;
+
+		foreach (Light l in player.GetComponentsInChildren<Light> ()) {
+			l.enabled = false;
+		}
+
 		foreach (PlayerParticle p in player.GetComponentsInChildren<PlayerParticle>()) {
+			p.GetComponentInChildren<Light>().enabled = true;
 			p.scatter();
 		}
 
@@ -54,9 +63,16 @@ public class LevelController : MonoBehaviour {
 			yield return null;
 		}
 
+
+		Vector3 oldPosition = player.transform.position;
 		player.transform.position = spawn.transform.position;
 
-		foreach (PlayerParticle p in player.GetComponentsInChildren<PlayerParticle>()) {
+		foreach (Light l in player.GetComponentsInChildren<Light> ()) {
+			l.enabled = true;
+		}
+
+		foreach (PlayerParticle p in player.GetComponentsInChildren<PlayerParticle>()) {		
+			p.transform.position = p.transform.position + (oldPosition - player.transform.position);
 			p.startReform();
 		}
 
@@ -65,6 +81,13 @@ public class LevelController : MonoBehaviour {
 				p.ReformLerp(f);
 			}
 			yield return null;
+		}
+
+		player.GetComponent<PhisicalObject> ().enabled = true;
+		player.GetComponent<BoxCollider> ().enabled = true;
+		player.GetComponent<Controls> ().enabled = true;
+		foreach (PlayerParticle p in player.GetComponentsInChildren<PlayerParticle>()) {		
+			p.GetComponentInChildren<Light>().enabled = false;
 		}
 	}
 }
