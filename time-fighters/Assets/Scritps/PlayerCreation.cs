@@ -75,6 +75,7 @@ public class PlayerCreation : MonoBehaviour {
 		player.GetComponent<PlayerSettings> ().playerColor = color;
 		player.transform.position = location;
 		player.GetComponent<Controls>().setPlayerNum(controllerNumber);
+		player.GetComponent<PlayerStatistics> ().setPlayerNumber (controllerNumber);
 
 		players.Add(player);
 

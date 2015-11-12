@@ -18,6 +18,8 @@ public class LevelController : MonoBehaviour {
 		foreach (GameObject player in GameObject.FindGameObjectsWithTag ("Player")) {
 			players.Add (player);
 			player.GetComponent<PlayerHealth>().reset();
+			player.GetComponent<PlayerStatistics> ().setPlayerNumber (player.GetComponent<Controls>().playerNum);
+			player.GetComponent<PlayerStatistics>().setLives(player.GetComponent<PlayerHealth>().currentLives);
 			StartCoroutine (Respwan (player, spawns [i]));
 			i++;
 		}

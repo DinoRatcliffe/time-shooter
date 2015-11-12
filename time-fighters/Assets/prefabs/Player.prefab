@@ -373,7 +373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: 100
-  playerLives: 1
+  playerLives: 10
   currentLives: 1
 --- !u!1001 &100100000
 Prefab:
@@ -396,7 +396,7 @@ Prefab:
       objectReference: {fileID: 144138, guid: 17d6c6b81a95b44daa6a230768c912f8, type: 2}
     - target: {fileID: 0}
       propertyPath: playerLives
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Mass
