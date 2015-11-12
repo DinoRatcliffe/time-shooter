@@ -7,6 +7,8 @@ public class LevelController : MonoBehaviour {
 	private List<GameObject> players;
 	private List<GameObject> inactivePlayers;
 	private GameObject[] spawns;
+
+	public int targetKills = 5;
 	
 	// Use this for initialization
 	void Start () {
@@ -33,18 +35,24 @@ public class LevelController : MonoBehaviour {
 	
 	public void RespawnPlayer(GameObject player) {
 		StartCoroutine (Respwan (player, spawns [Random.Range (0, spawns.Length)]));
+		foreach (GameObject p in GameObject.FindGameObjectsWithTag ("Player")) {
+			if (p.GetComponent<PlayerStatistics>().kills >= targetKills) {
+				EndLevel();
+			}
+		}
+	}
+
+	void EndLevel () {
+		foreach (GameObject p in inactivePlayers) {
+			p.SetActive(true);
+		}
+		Application.LoadLevel ("ResultsScene");
 	}
 
 	public void RemovePlayer(GameObject player) {
 		players.Remove (player);
 		inactivePlayers.Add (player);
 		player.SetActive (false);
-		if (players.Count == 1) {
-			foreach (GameObject p in inactivePlayers) {
-				p.SetActive(true);
-			}
-			Application.LoadLevel("ResultsScene");
-		}
 	}
 
 

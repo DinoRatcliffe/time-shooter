@@ -331,6 +331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9c1d1980b3b740cfad12c6f83f2f651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  kills: 0
 --- !u!114 &11461166
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -373,7 +374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: 100
-  playerLives: 5
+  playerLives: 10
   currentLives: 1
 --- !u!1001 &100100000
 Prefab:
@@ -396,7 +397,7 @@ Prefab:
       objectReference: {fileID: 144138, guid: 17d6c6b81a95b44daa6a230768c912f8, type: 2}
     - target: {fileID: 0}
       propertyPath: playerLives
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Mass

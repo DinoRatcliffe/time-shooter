@@ -17,7 +17,7 @@ public class WinnerController : MonoBehaviour {
 			player.GetComponent<PlayerStatistics> ().setPlayerNumber (player.GetComponent<Controls>().playerNum);
 			player.GetComponent<PlayerStatistics> ().UpdateStats();
 
-			if (player.GetComponent<PlayerHealth>().currentLives > 0) {
+			if (player.GetComponent<PlayerStatistics>().kills >= 5) {
 				winner = player;
 				player.transform.position = winnerSpawn.transform.localPosition;
 				StartCoroutine (Respwan (player, winnerSpawn));

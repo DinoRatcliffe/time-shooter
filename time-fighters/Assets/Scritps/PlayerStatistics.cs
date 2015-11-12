@@ -6,7 +6,7 @@ public class PlayerStatistics : MonoBehaviour {
 
 	Text statsText;
 	private int lives;
-	private int kills;
+	public int kills;
 	private int playerNumber;
 
 	// Use this for initialization
