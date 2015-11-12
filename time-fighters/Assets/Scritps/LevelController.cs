@@ -20,6 +20,7 @@ public class LevelController : MonoBehaviour {
 			player.GetComponent<PlayerHealth>().reset();
 			player.GetComponent<PlayerStatistics> ().setPlayerNumber (player.GetComponent<Controls>().playerNum);
 			player.GetComponent<PlayerStatistics>().setLives(player.GetComponent<PlayerHealth>().currentLives);
+			player.GetComponent<PlayerStatistics>().setKills(0);
 			StartCoroutine (Respwan (player, spawns [i]));
 			i++;
 		}

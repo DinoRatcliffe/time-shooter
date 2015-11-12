@@ -20,10 +20,7 @@ public class PlayerStatistics : MonoBehaviour {
 
 		GameObject obj = GameObject.Find (statsField);
 		if (obj) {
-			Debug.LogError ("Did FIND!");
 			statsText = obj.GetComponent<Text> ();
-		} else {
-			Debug.LogError ("Could not find " + statsField);
 		}
 	}
 
@@ -34,6 +31,11 @@ public class PlayerStatistics : MonoBehaviour {
 
 	public void setKills(int kills) {
 		this.kills = kills;
+		UpdateStats ();
+	}
+
+	public void IncKills() {
+		this.kills++;
 		UpdateStats ();
 	}
 

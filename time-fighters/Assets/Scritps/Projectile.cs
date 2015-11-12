@@ -28,6 +28,7 @@ public class Projectile : MonoBehaviour {
 	}
 
 	public void damagedPlayer() {
+		shooter.GetComponent<PlayerStatistics> ().IncKills ();
 		Destroy (gameObject);
 	}
 }
