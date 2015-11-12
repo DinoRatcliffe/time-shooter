@@ -10,6 +10,7 @@ public class PlayerCreation : MonoBehaviour {
 
 	private bool p1Spawned, p2Spawned, p3Spawned, p4Spawned;
 	private bool p1Ready, p2Ready, p3Ready, p4Ready;
+	private int playerReadyCount = 0;
 	private List<GameObject> players;
 	private Text[] textualComponents;
 	// Use this for initialization
@@ -36,15 +37,19 @@ public class PlayerCreation : MonoBehaviour {
 
 		if (Input.GetButtonDown ("READY_P1") && p1Spawned) {
 			p1Ready = true;
+			playerReadyCount++;
 			readyUp(1);
 		} else if (Input.GetButtonDown ("READY_P2") && p2Spawned) {
 			p2Ready = true;
+			playerReadyCount++;
 			readyUp(2);
 		} else if (Input.GetButtonDown ("READY_P3") && p3Spawned) {
 			p3Ready = true;
+			playerReadyCount++;
 			readyUp(3);
 		} else if (Input.GetButtonDown ("READY_P4") && p4Spawned) {
 			p4Ready = true;
+			playerReadyCount++;
 			readyUp(4);
 		}
 
@@ -61,7 +66,8 @@ public class PlayerCreation : MonoBehaviour {
 		if (((p1Spawned && p1Ready) || !p1Spawned) &&
 			((p2Spawned && p2Ready) || !p2Spawned) &&
 			((p3Spawned && p3Ready) || !p3Spawned) &&
-			((p4Spawned && p4Ready) || !p4Spawned)) {
+			((p4Spawned && p4Ready) || !p4Spawned) &&
+		    playerReadyCount > 1) {
 			startLevel();
 		}
 	}
