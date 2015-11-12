@@ -46,7 +46,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Background.cs" />
+     <Compile Include="Assets\PlayerParticle.cs" />
      <Compile Include="Assets\Scritps\AltEffect.cs" />
+     <Compile Include="Assets\Scritps\BodyBuilder.cs" />
      <Compile Include="Assets\Scritps\Controls.cs" />
      <Compile Include="Assets\Scritps\Crosshair.cs" />
      <Compile Include="Assets\Scritps\LevelController.cs" />

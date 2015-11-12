@@ -74,10 +74,12 @@ public class PlayerCreation : MonoBehaviour {
 		GameObject player = Instantiate(playerPrefab);
 		player.transform.position = location;
 		player.GetComponent<Controls>().setPlayerNum(controllerNumber);
+
 		foreach (Renderer r in player.GetComponentsInChildren<Renderer> ()) {
 			r.material.color = color;
 			r.material.SetColor ("_EmissionColor", color);
 		}
+
 		player.GetComponentInChildren<Light>().color = color;
 		player.GetComponent<Crosshair> ().color = color;
 		players.Add(player);

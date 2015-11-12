@@ -29,7 +29,7 @@ public class LevelController : MonoBehaviour {
 	}
 	
 	public void RespawnPlayer(GameObject player) {
-		player.transform.position = spawns [Random.Range (0, spawns.Length)].transform.position;
+		StartCoroutine (Respwan (player, spawns [Random.Range (0, spawns.Length)]));
 	}
 
 	public void RemovePlayer(GameObject player) {
@@ -41,6 +41,30 @@ public class LevelController : MonoBehaviour {
 				p.SetActive(true);
 			}
 			Application.LoadLevel("ResultsScene");
+		}
+	}
+
+	
+	IEnumerator Respwan(GameObject player, GameObject spawn) {
+		foreach (PlayerParticle p in player.GetComponentsInChildren<PlayerParticle>()) {
+			p.scatter();
+		}
+
+		for (float f = 1f; f >= 0.1; f -= 0.01f) {
+			yield return null;
+		}
+
+		player.transform.position = spawn.transform.position;
+
+		foreach (PlayerParticle p in player.GetComponentsInChildren<PlayerParticle>()) {
+			p.startReform();
+		}
+
+		for (float f = 0f; f <= 1; f += 0.01f) {
+			foreach (PlayerParticle p in player.GetComponentsInChildren<PlayerParticle>()) {
+				p.ReformLerp(f);
+			}
+			yield return null;
 		}
 	}
 }
