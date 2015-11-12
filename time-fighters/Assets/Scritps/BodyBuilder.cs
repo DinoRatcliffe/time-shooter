@@ -10,7 +10,8 @@ public class BodyBuilder : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		gameObject.transform.localScale = new Vector3(1F/height, 1F/width, 1F/depth);
+		BoxCollider boxCollider = gameObject.GetComponentInParent<BoxCollider> ();
+		gameObject.transform.localScale = new Vector3(boxCollider.size.x/height, boxCollider.size.y/width, boxCollider.size.z/depth);
 		for (int i = 0; i < height; i++) {
 			for (int j = 0; j < width; j++) {
 				for (int r = 0; r < depth; r++) {

@@ -11,7 +11,7 @@ GameObject:
   - 33: {fileID: 3392950}
   - 65: {fileID: 6522624}
   - 23: {fileID: 2325356}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BGCUBE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 443698}
   - 108: {fileID: 10829300}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ Light:
   m_Enabled: 0
   serializedVersion: 6
   m_Type: 2
-  m_Color: {r: .903448105, g: 0, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 8
   m_Range: 30
   m_SpotAngle: 30
