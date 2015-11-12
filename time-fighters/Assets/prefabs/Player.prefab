@@ -64,6 +64,7 @@ GameObject:
   - 114: {fileID: 11416444}
   - 114: {fileID: 11496232}
   - 114: {fileID: 11461166}
+  - 114: {fileID: 11443618}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -319,6 +320,17 @@ MonoBehaviour:
   altProjectilePrefab: {fileID: 124514, guid: 8fabf113591e24c91b2506106a389393, type: 2}
   crosshairPrefab: {fileID: 138308, guid: ec516e98d73144d2f8f932347d2c48ab, type: 2}
   color: {r: 1, g: 1, b: 1, a: 0}
+--- !u!114 &11443618
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 134672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9c1d1980b3b740cfad12c6f83f2f651, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11461166
 MonoBehaviour:
   m_ObjectHideFlags: 1

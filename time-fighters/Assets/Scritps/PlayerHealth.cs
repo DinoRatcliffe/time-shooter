@@ -34,6 +34,7 @@ public class PlayerHealth: MonoBehaviour {
 				GameObject.FindGameObjectWithTag ("LevelController").GetComponent<LevelController>().RemovePlayer(gameObject);
 			}
 		}
+		GetComponent<PlayerStatistics> ().setHealth (currentHealth);
 	}
 
 	public void reset() {
