@@ -59,7 +59,7 @@ public class LevelController : MonoBehaviour {
 			p.scatter();
 		}
 
-		for (float f = 1f; f >= 0.1; f -= 0.01f) {
+		for (float f = 1f; f >= 0.1; f -= 0.05f) {
 			yield return null;
 		}
 
@@ -76,11 +76,15 @@ public class LevelController : MonoBehaviour {
 			p.startReform();
 		}
 
-		for (float f = 0f; f <= 1; f += 0.01f) {
+		for (float f = 0f; f <= 1; f += 0.05f) {
 			foreach (PlayerParticle p in player.GetComponentsInChildren<PlayerParticle>()) {
 				p.ReformLerp(f);
 			}
 			yield return null;
+		}
+
+		foreach (PlayerParticle p in player.GetComponentsInChildren<PlayerParticle>()) {
+			p.ReformLerp(1);
 		}
 
 		player.GetComponent<PhisicalObject> ().enabled = true;

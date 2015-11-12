@@ -6,6 +6,7 @@ public class BodyBuilder : MonoBehaviour {
 	public int height;
 	public int depth;
 	public GameObject item;
+	public Color color;
 
 	// Use this for initialization
 	void Start () {
@@ -14,6 +15,9 @@ public class BodyBuilder : MonoBehaviour {
 			for (int j = 0; j < width; j++) {
 				for (int r = 0; r < depth; r++) {
 					GameObject g = (GameObject) Instantiate(item, transform.position, transform.rotation);
+					g.GetComponent<Renderer>().material.color = color;
+					g.GetComponent<Renderer>().material.SetColor("_EmissionColor", color);
+					g.GetComponentInChildren<Light>().color = color;
 					g.transform.parent = transform;
 					g.transform.localPosition = new Vector3(i-height/2, j-width/2, r-depth/2);
 					g.transform.localScale = new Vector3(1F, 1F, 1F);

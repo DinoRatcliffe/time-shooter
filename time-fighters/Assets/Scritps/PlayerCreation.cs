@@ -72,16 +72,10 @@ public class PlayerCreation : MonoBehaviour {
 
 	void spawnPlayer(Vector3 location, int controllerNumber, Color color) {
 		GameObject player = Instantiate(playerPrefab);
+		player.GetComponent<PlayerSettings> ().playerColor = color;
 		player.transform.position = location;
 		player.GetComponent<Controls>().setPlayerNum(controllerNumber);
 
-		foreach (Renderer r in player.GetComponentsInChildren<Renderer> ()) {
-			r.material.color = color;
-			r.material.SetColor ("_EmissionColor", color);
-		}
-
-		player.GetComponentInChildren<Light>().color = color;
-		player.GetComponent<Crosshair> ().color = color;
 		players.Add(player);
 
 		DontDestroyOnLoad (player.gameObject);

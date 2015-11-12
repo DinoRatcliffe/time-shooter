@@ -25,7 +25,7 @@ public class PlayerParticle : MonoBehaviour {
 
 	public void scatter() {
 		GetComponent<BoxCollider> ().enabled = true;
-		GetComponent<PhisicalObject> ().AddForce (new Vector3(Random.Range (-1F, 1F), Random.Range (-1F, 1F), Random.Range (-1F, 1F)));
+		GetComponent<PhisicalObject> ().AddForce (new Vector3(Random.Range (-1F, 1F)*2, Random.Range (-1F, 1F)*2, Random.Range (-1F, 0)*2));
 	}	
 
 	public void startReform() {
